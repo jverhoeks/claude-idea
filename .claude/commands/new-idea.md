@@ -74,7 +74,24 @@ Calculate the composite score: `(11 - Work) + Coolness + Commercial`
 
 2. Get today's date in YYYY-MM-DD format
 
-3. Create the markdown file at `ideas/inbox/[slug].md` with this template:
+3. Determine the priority level:
+   - Calculate composite score first: `(11 - Work) + Coolness + Commercial`
+   - If composite >= 21: priority = "high"
+   - If composite >= 15: priority = "medium"
+   - If composite < 15: priority = "low"
+
+4. Estimate effort in days:
+   - Work score 1-2: 1 day
+   - Work score 3-4: 5 days
+   - Work score 5-6: 21 days
+   - Work score 7-8: 45 days
+   - Work score 9-10: 120 days
+
+5. Extract the next step:
+   - Use the first suggested next step from your earlier suggestions
+   - Keep it concise (~100 characters)
+
+6. Create the markdown file at `ideas/inbox/[slug].md` with this template:
 
 ```markdown
 ---
@@ -84,6 +101,17 @@ created: [YYYY-MM-DD]
 updated: [YYYY-MM-DD]
 status: inbox
 tags: [tag1, tag2, tag3]
+
+priority: [high/medium/low]
+effort_estimate_days: [number or null]
+next_step: "[first action step]"
+last_reviewed: [YYYY-MM-DD]
+
+scores:
+  work: [X]
+  coolness: [X]
+  commercial: [X]
+  composite: [X]
 ---
 
 # [Title]

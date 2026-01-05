@@ -38,11 +38,20 @@ For each idea file:
    - title
    - status
    - created date
-3. Extract from scores section:
+   - priority (optional, new format)
+   - effort_estimate_days (optional, new format)
+
+3. Extract scores - **Try new format first, fall back to old format**:
+
+   **New Format** (nested in frontmatter):
+   - Look for `scores:` object with work, coolness, commercial, composite
+
+   **Old Format** (in body text - for backward compatibility):
    - Work Required score (look for "**Score:** X/10")
    - Coolness Factor score
    - Commercial Opportunity score
    - Composite Score (or calculate it if missing)
+
 4. If scores are missing:
    - Use placeholders: "-" for each score
    - Note: "Not scored yet"

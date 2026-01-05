@@ -17,7 +17,9 @@ Search for matching idea files using Glob tool: `ideas/**/*[search-term]*.md`
 
 Read the idea file and extract:
 - Title, Summary, Problem/Opportunity, Solution/Approach
-- Current commercial score
+- Current commercial score from:
+  - New format: `scores.commercial` in frontmatter
+  - Old format: "### Commercial Opportunity" section in body
 - Formulate search queries based on content
 
 ## Step 3: Conduct Market Research
@@ -95,9 +97,16 @@ Update reasoning to reference research findings.
 
 ## Step 7: Update the Idea File
 
-1. Add market research report to "## Market Research" section
-2. If commercial score changed, update "## Scores" section
-3. Keep previous research (append, don't overwrite)
+1. Update frontmatter:
+   - If commercial score changed:
+     - Update `scores.commercial` with new value
+     - Update `scores.composite` with new calculation: `(11 - work) + coolness + commercial`
+   - Update `last_reviewed: YYYY-MM-DD` to today's date
+   - Keep all other frontmatter fields unchanged
+
+2. Add market research report to "## Market Research" section in body
+3. If commercial score changed, update "## Scores" section in body
+4. Keep previous research (append, don't overwrite)
 
 ## Step 8: Display Summary
 

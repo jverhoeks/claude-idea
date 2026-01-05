@@ -22,8 +22,12 @@ The user will provide either:
 ## Step 2: Read and Display the Idea
 
 1. Read the idea file
-2. Extract and display: Title, Summary, Current scores, Status
-3. Give a brief assessment
+2. Extract from frontmatter:
+   - Title, Status, Priority, Effort Estimate Days
+   - Scores from `scores:` object (work, coolness, commercial, composite)
+   - Or fall back to old format if `scores:` object not present
+3. Display: Title, Summary, Current scores, Status, Metadata
+4. Give a brief assessment
 
 ## Step 3: Choose Extension Mode
 
@@ -96,8 +100,14 @@ Ask targeted questions:
 
 ## Step 5: Update the Idea File
 
-1. Add the extension to the "## Extensions" section
-2. Keep all previous extensions
+1. Update the frontmatter:
+   - Update the `scores:` object with new work, coolness, commercial, composite values
+   - Update `last_reviewed: YYYY-MM-DD` to today's date
+   - Update `effort_estimate_days` if work score changed
+   - Keep all other frontmatter fields unchanged
+
+2. Add the extension to the "## Extensions" section in the body
+3. Keep all previous extensions
 
 ## Step 6: Re-score the Idea
 
@@ -107,7 +117,11 @@ Based on new insights, re-evaluate:
 - Commercial Opportunity
 
 Provide new scores with reasoning that references the extension.
-Preserve old scores in history.
+Calculate composite: `(11 - Work) + Coolness + Commercial`
+
+Update both:
+- The frontmatter `scores:` object
+- The body "## Scores" section for reference
 
 ## Step 7: Display Summary
 
